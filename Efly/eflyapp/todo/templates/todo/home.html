@@ -1,0 +1,37 @@
+{%extends 'todo/layout.html' %}
+
+{%block content%}
+
+<div class="jumbotron jumbotron-fluid bg-white">
+  
+  <div class="p-3 mb-2 bg-warning text-dark" style="text-align: center;">
+    {% if request.user.is_authenticated %}
+
+      <h1>Bienvenido {{ user.username | upper }} a E-FLY</h1>
+      {%else%}
+      <h1>Bienvenido a E-FLY</h1>
+    {%endif%}
+  </div>
+
+</div>
+<div class="container text-center">
+<table class="table table-warning">
+    <thead>
+      <tr>
+        <div class="container">
+        <a href="{% url 'home' %}" class="btn btn-warning btn-lg btn-block" role="button">INICO</a>
+        <a href="{% url 'register' %}" class="btn btn-warning btn-lg btn-block" role="button">REGISTRARSE</a>
+        <a href="ChangePassword" class="btn btn-warning btn-lg btn-block" role="button">CAMBIAR CONTRASEÑA</a>
+        <a href="Edit/{{user.DNI}}"  class="btn btn-warning btn-lg btn-block" role="button">EDITAR PERFIL</a>
+        <a href="Delete/{{user.DNI}}"  class="btn btn-danger btn-lg btn-block" role="button">Eliminar PERFIL</a>
+        </div>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}
+
+
